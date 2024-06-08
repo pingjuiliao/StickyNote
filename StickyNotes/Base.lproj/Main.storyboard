@@ -1,24 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad12_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Board View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BoardViewController" customModule="StickyNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brick_wall" translatesAutoresizingMaskIntoConstraints="NO" id="gW5-6U-mFJ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sticky_board" translatesAutoresizingMaskIntoConstraints="NO" id="f5C-jL-04V">
+                                <rect key="frame" x="37" y="57" width="340" height="550"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9X-2E-O1K">
+                                <rect key="frame" x="57" y="624" width="85" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="New" backgroundImage="btnNewStickyNotes"/>
+                                <connections>
+                                    <action selector="buttonAddNewStickyNote:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IVF-KO-EhP"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1kk-Nc-GbX">
+                                <rect key="frame" x="57" y="76" width="300" height="512"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cw3-WK-bze" customClass="RAReorderableLayout" customModule="StickyNotes" customModuleProvider="target">
+                                    <size key="itemSize" width="90" height="90"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="noteCell" id="pew-m8-n94" customClass="NoteCell" customModule="StickyNotes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zgg-KT-UhH">
+                                                    <rect key="frame" x="8" y="8" width="74" height="74"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EF3-Vw-MK0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="button" destination="EF3-Vw-MK0" id="9H5-3g-huO"/>
+                                            <outlet property="noteImage" destination="zgg-KT-UhH" id="16a-nh-iUq"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsF-LC-FfJ">
+                                <rect key="frame" x="230" y="620" width="109" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="trashCan"/>
+                                <connections>
+                                    <action selector="trashCanButtonIsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kwV-9b-emd"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="board" destination="f5C-jL-04V" id="Jih-ak-ZJg"/>
+                        <outlet property="newNoteButton" destination="G9X-2E-O1K" id="4g8-vU-20O"/>
+                        <outlet property="noteCollection" destination="1kk-Nc-GbX" id="97x-3O-bVA"/>
+                        <outlet property="trashCanButton" destination="qsF-LC-FfJ" id="b4H-jK-cCY"/>
+                        <outlet property="trashCanButtonOutlet" destination="qsF-LC-FfJ" id="uAH-IN-jci"/>
+                        <outlet property="wallpaper" destination="gW5-6U-mFJ" id="pm0-yt-ML4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="63.768115942028992" y="34.239130434782609"/>
+        </scene>
+        <!--Note View Controller-->
+        <scene sceneID="jiO-1f-4ss">
+            <objects>
+                <viewController storyboardIdentifier="noteViewController" id="6PU-EM-Le2" customClass="NoteViewController" customModule="StickyNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tbu-gt-5g9">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cork" translatesAutoresizingMaskIntoConstraints="NO" id="48F-jN-yEp">
+                                <rect key="frame" x="0.0" y="20" width="414" height="724"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYy-cv-o3V">
+                                <rect key="frame" x="309" y="460" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btnChangeColorNotes"/>
+                                <connections>
+                                    <action selector="noteStyleButtonIsClicked" destination="6PU-EM-Le2" eventType="touchUpInside" id="bNL-aN-jHy"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="smW-9R-J0H" customClass="DrawingArea" customModule="StickyNotes" customModuleProvider="target">
+                                <rect key="frame" x="32" y="60" width="350" height="350"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrH-kP-rH8">
+                                <rect key="frame" x="15" y="460" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="penWithSpark"/>
+                                <connections>
+                                    <action selector="penButtonIsClicked" destination="6PU-EM-Le2" eventType="touchUpInside" id="EbY-5Y-oVK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mV1-sX-xMn">
+                                <rect key="frame" x="113" y="460" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="eraser"/>
+                                <connections>
+                                    <action selector="eraserButtonIsClicked" destination="6PU-EM-Le2" eventType="touchUpInside" id="PBg-zU-7m7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDc-9w-ecg">
+                                <rect key="frame" x="211" y="460" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="palette"/>
+                                <connections>
+                                    <action selector="paletteButtonIsClicked" destination="6PU-EM-Le2" eventType="touchUpInside" id="2Bd-7M-35H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4O-Mg-7nl">
+                                <rect key="frame" x="162" y="588" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done" backgroundImage="pin"/>
+                                <connections>
+                                    <action selector="doneButtonIsClicked" destination="6PU-EM-Le2" eventType="touchUpInside" id="7Km-bw-hyc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Kjs-qe-oXr"/>
+                    </view>
+                    <connections>
+                        <outlet property="drawingArea" destination="smW-9R-J0H" id="J0W-fy-dHy"/>
+                        <outlet property="eraserButtonOutlet" destination="mV1-sX-xMn" id="vEI-1h-3mb"/>
+                        <outlet property="penButtonOutlet" destination="xrH-kP-rH8" id="6TV-Xt-PWh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hsn-1y-y4u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="714.49275362318849" y="34.239130434782609"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="brick_wall" width="320" height="568"/>
+        <image name="btnChangeColorNotes" width="117" height="111"/>
+        <image name="btnNewStickyNotes" width="483" height="478"/>
+        <image name="cork" width="426" height="640"/>
+        <image name="eraser" width="300" height="300"/>
+        <image name="palette" width="1000" height="735"/>
+        <image name="penWithSpark" width="400" height="400"/>
+        <image name="pin" width="128" height="128"/>
+        <image name="sticky_board" width="348" height="573"/>
+        <image name="trashCan" width="150" height="151"/>
+    </resources>
 </document>
